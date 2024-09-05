@@ -11,12 +11,16 @@ export default class Utils {
   }
 
   static getDirectoriesRecursive(dir: string): string[] {
+    const execludedDirs = [".git", "node_modules", "vendor", "bin", "dist", "build", "out", "target", "tmp", "temp", ".vscode", ".idea", ".vscode-test", ".github", "github"];
     let depth = 0;
     let results: string[] = [];
     const list = fs.readdirSync(dir);
 
     list.forEach((file) => {
       const filePath = path.join(dir, file);
+      if (execludedDirs.includes(file)) {
+        return;
+      }
       if (fs.statSync(filePath).isDirectory()) {
         results.push(filePath);
         if (depth < 5) {
