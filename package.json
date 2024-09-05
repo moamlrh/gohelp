@@ -2,7 +2,7 @@
   "name": "gohelp",
   "displayName": "gohelp",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "moaml",
   "engines": {
     "vscode": "^1.92.0"
